@@ -110,7 +110,7 @@ class P4ConfigGUI(QWidget):
 
         layout = QVBoxLayout()
 
-        self.status_label = QLabel('Press the button to generate .p4config and .p4ignore files.')
+        self.status_label = QLabel('This program generates a .p4conifg and .p4ignore file for an Unreal Project.\n\n1. Make sure you are logged into Perforce.\n2. Either run this program next to your .uproject file or browse to its locaiton.\n3. Press the button to generate .p4config and .p4ignore files.')
         self.status_label.setFont(QFont('Segoe UI', 10))
         self.status_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.status_label)
@@ -157,7 +157,6 @@ class P4ConfigGUI(QWidget):
             if error_message:
                 QMessageBox.critical(self, 'Error', error_message)
             else:
-                self.status_label.setText(f"Files created successfully in {project_root}")
                 QMessageBox.information(self, 'Success', "Files created successfully")
         else:
             error_message = 'Could not find Unreal project root. Please provide a valid directory or run this script inside an Unreal project directory.'
